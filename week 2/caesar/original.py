@@ -1,15 +1,17 @@
 """
 Function of caesar code
 """
+
+
 def caesar_encode(message, key):
     """
     Returns ceasar_encode
     >>> caesar_encode('computer', 3)
     'frpsxwhu'
     """
-    encoded_message = ''
+    encoded_message = ""
     for i in message:
-        if i == ' ':
+        if i == " ":
             encoded_message += i
         else:
             let_ord = ord(i)
@@ -21,15 +23,16 @@ def caesar_encode(message, key):
             encoded_message += new_let
     return encoded_message
 
+
 def caesar_decode(message, key):
     """
     Returns caesar_decode
     >>> caesar_decode('xa xcd s', 5)
     'sv sxy n'
     """
-    decoded_message = ''
+    decoded_message = ""
     for i in message:
-        if i == ' ':
+        if i == " ":
             decoded_message += i
         else:
             let_ord = ord(i)
