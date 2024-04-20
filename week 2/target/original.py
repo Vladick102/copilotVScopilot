@@ -103,7 +103,7 @@ def main():
     print('Your board is ' + str(board))
     print('Please, suggest your words here:')
     user_words = get_user_words()
-    words_from_dict = get_words('en', letters)
+    words_from_dict = get_words('en.txt', letters)
     pure_words = get_pure_user_words(user_words, letters, words_from_dict)
     missed_words = []
     for x in words_from_dict:

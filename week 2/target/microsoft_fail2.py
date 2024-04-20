@@ -17,31 +17,22 @@ def generate_grid() -> list[list[str]]:
     return [[a.pop(random.choice(range(len(a)))) for _ in range(3)] for _ in range(3)]
 
 
-
-# THIS IS THE ORIGINAL FUNCTION SINCE MICROSOFT COPILOT COULDN'T FIX IT
-
+# DOES NOT WORK
 def get_words(f: str, letters: list[str]) -> list[str]:
     """
     Reads the file f. Checks the words with rules and returns a list of words.
-    >>> get_words('en', ['a','b','c','d','e','f','g','h','i'])
-    ['cafh', 'chafe', 'chef', 'chief', 'deaf', 'face', 'faced', 'fade', 'fadge', 'fage', 'fice', \
-'fiche', 'fide', 'fidge', 'heaf']
     """
     word_list = []
-    with open(f, 'r', encoding = 'utf-8') as file:
-        lines = file.readlines()
-        del lines[:3]
+    with open(f, 'r', encoding='utf-8') as file:
+        lines = file.readlines()[3:]
         for word in lines:
-            word = (word.rstrip()).lower()
-            if len(word) in range(4,10) and letters[4] in word:
+            word = word.rstrip().lower()
+            if len(word) in range(4, 10) and letters[4] in word:
                 letters2 = letters[:]
-                k = 0
-                for sym in word:
-                    if sym in letters2:
-                        letters2.remove(sym)
-                        k += 1
-                if k == len(word):
+                if all(sym in letters2 for sym in word):
                     word_list.append(word)
+                    for sym in word:
+                        letters2.remove(sym)
     return word_list
 
 def get_user_words() -> list[str]:
