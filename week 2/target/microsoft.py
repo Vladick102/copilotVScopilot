@@ -18,8 +18,6 @@ def generate_grid() -> list[list[str]]:
 
 
 
-# THIS IS THE ORIGINAL FUNCTION SINCE MICROSOFT COPILOT COULDN'T FIX IT
-
 def get_words(f: str, letters: list[str]) -> list[str]:
     """
     Reads the file f. Checks the words with rules and returns a list of words.
