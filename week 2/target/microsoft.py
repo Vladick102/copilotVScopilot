@@ -4,9 +4,11 @@ The task of the player is to find as many words as possible that consist of four
 Each letter can appear in the word as many times as it appears on the game board.
 Each word must contain the central letter.
 """
-
+# import time
 import random
-
+# start = time.time()
+import tracemalloc
+tracemalloc.start()
 def generate_grid() -> list[list[str]]:
     """
     Generates list of lists of letters - i.e. grid for the game.
@@ -88,3 +90,9 @@ def main():
     print(missed_words)
     print("You suggest, but we don't have in the dictionary:")
     print(pure_words)
+
+get_words('en.txt', ['a','b','c','d','e','f','g','h','i'])
+# end = time.time()
+# print(end-start)
+print(tracemalloc.get_traced_memory())
+tracemalloc.stop()

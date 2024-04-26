@@ -1,6 +1,9 @@
 '''Target game'''
 
 import random
+import tracemalloc
+import random
+tracemalloc.start()
 
 def generate_grid() -> list[list[str]]:
     """
@@ -116,3 +119,23 @@ def main():
     print(missed_words)
     print("You suggest, but we don't have in the dictionary:")
     print(pure_words)
+
+
+
+get_words('en.txt', ['a','b','c','d','e','f','g','h','i'])
+print(tracemalloc.get_traced_memory())
+tracemalloc.stop()
+
+
+
+
+encoded_message = ""
+for char in message:
+    if char.isalpha():
+        base = ord('A') if char.isupper() else ord('a')
+        new_char_ord = (ord(char) - base + key) % 26 + base
+        new_char = chr(new_char_ord)
+        encoded_message += new_char
+    else:
+        encoded_message += char
+return encoded_message

@@ -1,5 +1,9 @@
 import random
 
+# import time
+# start = time.time()
+import tracemalloc
+tracemalloc.start()
 
 def generate_grid() -> list[list[str]]:
     consonants = [
@@ -91,3 +95,14 @@ def main():
     print(missed_words)
     print("You suggest, but we don't have in the dictionary:")
     print(pure_words)
+
+
+for _ in range(1000):
+    get_pure_user_words(['banana', 'aaaan'],['b','a','n','a','n','a','a','a','a'], ['banana'])
+
+# end = time.time()
+# print(end  - start)
+
+
+print(tracemalloc.get_traced_memory())
+tracemalloc.stop()
