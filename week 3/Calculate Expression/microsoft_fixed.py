@@ -30,8 +30,8 @@ def calculate_expression(expression: str) -> int | str:
         expression = expression.replace("?", "")
         expression = expression.replace(")", "")
         expression = expression.replace("(", "")
-        # if len(expression) == 1:
-        #     return int(expression)
+        if len(expression) == 1:
+            return int(expression)
 
         list_exp = expression.split(" ")
         for i in range(len(list_exp)):
